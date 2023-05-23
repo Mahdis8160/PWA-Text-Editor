@@ -1,18 +1,21 @@
-import React from "react";
-import logo from "./logo.svg";
+import { useState } from "react";
 import "./App.css";
-import TextEditor from "./components/TextEditor";
+import Details from "./components/Details";
+import { Tiptap } from "./components/TipTap";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
+  const [description, setDescription] = useState("");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>React Text Editor</h1>
-      </header>
-      <div className="editor">
-        <TextEditor />
+      <Header />
+      <div className="content">
+        <Tiptap setDescription={setDescription} />
+        <Details description={description} />
       </div>
+      <Footer />
     </div>
   );
 }
